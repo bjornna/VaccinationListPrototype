@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "description": "VaccinationListPrototype",
+  "owners": ["BIFROST <bifrost@dips.no>"],
+  "tags": ["dips", "bifrost"],
+  "authors": [
+    "Bjørn Næss <bna@dips.no>",
+    "Morten Hørthe <mho@dips.no>",
+    "Borisa Barisa <boba@dips.no>",
+    "Gjøran Figenschau <gfi@dips.no>"
+  ],
+  "include": ["src"],
+  "exclude": ["src/templates", "src/typescript", ".gitignore"],
+  "distributions": [
+    {
+      "id": "no.dips.vaccinationlistprototype.resources",
+      "version": {
+        "major": 0,
+        "minor": 1
+      },
+      "include": ["*"]
+    }
+  ]
+}

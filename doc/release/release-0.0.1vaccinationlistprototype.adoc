@@ -1,0 +1,75 @@
+:dips-template-url: \\p-fs01\DIPS\KIDS\Maler\Asciidoc
+include::{dips-template-url}\styles\dips-core-styles.adoc[]
+include::{dips-template-url}\styles\dips-style-no.adoc[]
+
+:product: VaccinationListPrototype
+:documenttype: Versjonsdokumentasjon
+
+ifdef::backend-pdf[= {product}: {documenttype}]
+ifdef::backend-html5[= {product} +++<BR>+++{documenttype}]
+DIPS AS
+:revnumber: Versjon 0.0.1
+:revdate: 2021-11-02
+:revremark:
+
+include::{dips-template-url}\styles\print.adoc[]
+
+ifdef::print[]
+include::{dips-template-url}\content\dips-copyright-notice.adoc[]
+endif::[]
+
+[[dips-document-history]]
+[discrete]
+#### Historikk
+[options="header",frame="topbot",cols="15,10,20,55"]
+|===
+|Dato |Revisjon |Forfatter |Beskrivelse
+
+|===
+
+[[dips-approval-history]]
+[discrete]
+#### Godkjenning
+[options="header",frame="topbot",cols="15,10,20,55"]
+|===
+|Dato |Revisjon |Godkjent av |Stilling
+
+|===
+
+
+<<<
+
+ifeval::["{revremark}"==""]
+include::{dips-template-url}\content\dips-prerelease-notice-no.adoc[]
+endif::[]
+
+include::{dips-template-url}\content\dips-vdok-about-no.adoc[]
+
+
+// nyheter
+
+//==== Overskrift
+
+
+
+////
+
+==== Tittelen til den første nyheten/endring - SKAL VÆRE KORT!
+
+[IMPORTANT]
+_Dette avsnittet beskriver brytende endringer/forbedringer og/eller viktig ny funksjonalitet/endringer i denne versjonen._
+
+==== Tittelen til den andre nyheten/endring - SKAL VÆRE KORT!
+
+[NOTE]
+_Ved endringer, beskriv funksjonaliteten slik den var før endringen. Beskriv så ny funksjonalitet og hvilke konsekvenser det har. Bruk ikonet dersom kundene bør være oppmerksom på endringen._
+
+
+////
+
+// endringer
+
+
+
+// feilrettinger
+

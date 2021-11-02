@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>6920d27c-fa3e-4dda-8b59-58d938c7600d</id>
+    <name>vaccination_list_v10</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2021-11-02</value>
+            </item>
+            <item>
+                <key>name</key>
+                <value>Bjørn Næss</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>DIPS AS</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>bna@dips.no</value>
+            </item>
+        </original_author>
+        <lifecycle_state>in_development</lifecycle_state>
+        <details>
+            <purpose>Persistent liste over pasientens vaksiner </purpose>
+            <keywords>
+                <item>vaksinajonsliste</item>
+            </keywords>
+            <use>For prototype of integration between vaccine management system and openEHR </use>
+            <copyright>© openEHR Foundation</copyright>
+        </details>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>6fd314e9b6fbab3792c52d930ae718b4</value>
+            </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::nb</value>
+            </item>
+        </other_details>
+    </description>
+    <definition
+        archetype_id="openEHR-EHR-COMPOSITION.vaccination_list.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:COMPOSITION">
+        <Content archetype_id="openEHR-EHR-ACTION.medication.v1"
+            path="/content" xsi:type="tem:ACTION">
+            <Rule max="0" min="0" path="/ism_transition[at0109]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0145]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0013]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0012]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0150]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0016]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0153]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0002]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0003]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0106]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0010]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0148]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0004]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0041]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0005]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0006]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0018]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0044]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0008]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0009]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0011]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0015]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0039]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0151]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0152]"/>
+            <Rule default="SNOMED-CT::33879002::Immunisation" path="/description[at0017]/items[at0156]">
+                <constraint xsi:type="tem:textConstraint">
+                    <includedValues>SNOMED-CT::33879002::Immunisation</includedValues>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/description[at0017]/items[at0132]"/>
+            <Rule max="0" path="/description[at0017]/items[at0133]"/>
+            <Rule max="0" path="/description[at0017]/items[at0043]"/>
+            <Rule max="0" path="/description[at0017]/items[at0154]"/>
+            <Rule max="0" path="/description[at0017]/items[at0155]"/>
+            <Rule max="0" path="/description[at0017]/items[at0140]"/>
+            <Rule max="0" path="/description[at0017]/items[at0033]"/>
+            <Rule max="0" path="/description[at0017]/items[at0149]"/>
+        </Content>
+    </definition>
+    <integrity_checks
+        archetype_id="openEHR-EHR-COMPOSITION.vaccination_list.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">6fd314e9b6fbab3792c52d930ae718b4</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-ACTION.medication.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">236F4461799071002A81BCCF458AE3BB</digest>
+    </integrity_checks>
+</template>

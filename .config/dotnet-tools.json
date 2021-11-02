@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "arena-package-manager-cli": {
+      "version": "21.1.136",
+      "commands": ["pm"]
+    }
+  }
+}
