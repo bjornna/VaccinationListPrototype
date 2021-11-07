@@ -56,6 +56,10 @@
                 <value>6fd314e9b6fbab3792c52d930ae718b4</value>
             </item>
             <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>2c562ae84e6960de80ad8665cbd25142</value>
+            </item>
+            <item>
                 <key>original_language</key>
                 <value>ISO_639-1::nb</value>
             </item>
@@ -102,9 +106,77 @@
             <Rule max="0" path="/description[at0017]/items[at0043]"/>
             <Rule max="0" path="/description[at0017]/items[at0154]"/>
             <Rule max="0" path="/description[at0017]/items[at0155]"/>
-            <Rule max="0" path="/description[at0017]/items[at0140]"/>
-            <Rule max="0" path="/description[at0017]/items[at0033]"/>
+            <Rule max="0" path="/description[at0017]/items[at0140]/items[at0147]"/>
+            <Rule max="0" path="/description[at0017]/items[at0140]/items[at0143]"/>
             <Rule max="0" path="/description[at0017]/items[at0149]"/>
+            <Rule name="Dosenummer" path="/description[at0017]/items[at0025]"/>
+            <Rule max="0" path="/protocol[at0030]/items[at0103]"/>
+            <Items archetype_id="openEHR-EHR-CLUSTER.medication.v1"
+                max="1" path="/description[at0017]/items[at0104]" xsi:type="tem:CLUSTER">
+                <Rule max="0" path="/items[at0071]"/>
+                <Rule max="0" path="/items[at0142]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0152]"/>
+                <Rule max="0" path="/items[at0158]"/>
+                <Rule max="0" path="/items[at0115]">
+                    <constraint xsi:type="tem:quantityConstraint"/>
+                </Rule>
+                <Rule max="0" path="/items[at0003]"/>
+                <Rule max="0" path="/items[at0139]">
+                    <constraint xsi:type="tem:quantityConstraint">
+                        <unitMagnitude>
+                            <unit>1</unit>
+                            <minMagnitude>0.0</minMagnitude>
+                            <includesMaximum>false</includesMaximum>
+                            <includesMinimum>true</includesMinimum>
+                        </unitMagnitude>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0008]"/>
+                <Rule max="0" path="/items[at0148]">
+                    <constraint xsi:type="tem:quantityConstraint">
+                        <unitMagnitude>
+                            <unit>1</unit>
+                            <minMagnitude>0.0</minMagnitude>
+                            <includesMaximum>false</includesMaximum>
+                            <includesMinimum>true</includesMinimum>
+                        </unitMagnitude>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0007]"/>
+                <Rule max="0" path="/items[at0127]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+            </Items>
+            <Items
+                archetype_id="openEHR-EHR-CLUSTER.sysvak_vaksinedetaljer.v1"
+                max="0" path="/description[at0017]/items[at0053]" xsi:type="tem:CLUSTER"/>
+            <Items archetype_id="openEHR-EHR-CLUSTER.person.v0"
+                concept_name="Person" max="1" name="Vaksinatør"
+                path="/description[at0017]/items[at0053]" xsi:type="tem:CLUSTER">
+                <Rule name="Vaksinatør" path="/items[at0001]"/>
+                <Rule max="0" path="/items[at0003]"/>
+                <Rule path="/items[at0004]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <includedValues>local_terms::VACCINATOR::Vaksinatør</includedValues>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0006]"/>
+                <Rule max="0" path="/items[at0019]"/>
+            </Items>
+            <Items archetype_id="openEHR-EHR-CLUSTER.organisation.v0"
+                max="1" path="/protocol[at0030]/items[at0085]" xsi:type="tem:CLUSTER">
+                <Rule max="0" path="/items[at0003]"/>
+                <Rule max="0" path="/items[at0004]"/>
+                <Rule max="0" path="/items[at0006]"/>
+            </Items>
         </Content>
     </definition>
     <integrity_checks
@@ -117,5 +189,26 @@
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
         <digest id="MD5-CAM-1.0.1">236F4461799071002A81BCCF458AE3BB</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.medication.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">abb94fa83e38ceba5e72b1bbe3305be9</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.sysvak_vaksinedetaljer.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">ea55c0669b7be0e4b06c3ce81921d717</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.person.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">366C6616AB120C2E1891A5830480F4DF</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.organisation.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">5A3F05C744F8449A401EE8BDEED5D610</digest>
     </integrity_checks>
 </template>

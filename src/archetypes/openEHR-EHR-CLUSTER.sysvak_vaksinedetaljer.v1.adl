@@ -1,0 +1,302 @@
+archetype (adl_version=1.4; uid=59bda2ef-5ee0-4aad-b8fc-97eca69663ec)
+	openEHR-EHR-CLUSTER.sysvak_vaksinedetaljer.v1
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::nb]>
+	translations = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			author = <
+			>
+		>
+		["es"] = <
+			language = <[ISO_639-1::es]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2021-02-08">
+		["name"] = <"Astrid Askeland">
+		["organisation"] = <"Dips AS">
+		["email"] = <"ask@dips.no">
+	>
+	lifecycle_state = <"published">
+	other_contributors = <"Vebjørn Arntzen, Oslo universitetssykehus HF, Norway (Nasjonal IKT redaktør)","Astrid Askeland, Dips ASA, Norway (Nasjonal IKT redaktør)","Anca Heyd, DIPS ASA, Norway (Nasjonal IKT redaktør)","Runar Kristiansen, DIPS AS, Norway (Nasjonal IKT redaktør)","Silje Ljosland Bakke, Helse Vest IKT, Norway (Nasjonal IKT redaktør)","Marit Alice Venheim, Helse Vest IKT, Norway (Nasjonal IKT redaktør)","Mikkel Grønmo, Helse Nord RHF, Norway (Nasjonal IKT redaktør)","Liv Laugen, Oslo universitetssykehus HF, Norway (Nasjonal IKT redaktør)","John Tore Valand, Helse Bergen HF, Norway (Nasjonal IKT redaktør)">
+	details = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"Arketypen skal brukes for å registrere informasjon som skal til SYSVAK, og som ikke finnes i andre arketyper.">
+			keywords = <"sysvak","vaksine","vaksinering","vaksinasjon">
+			copyright = <"© Nasjonal IKT HF">
+			use = <"Arketypen skal brukes for å registrere informasjon som skal til SYSVAK, og som ikke finnes i andre arketyper.">
+			misuse = <"Arketypen skal ikke brukes for å registrere personopplysninger eller informasjon om legemidler utenom en SYSVAK-melding.">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			copyright = <"© openEHR Foundation">
+		>
+		["es"] = <
+			language = <[ISO_639-1::es]>
+			copyright = <"© openEHR Foundation">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Nasjonal IKT">
+		["references"] = <"SYSVAK. Folkehelseinstituttet; 2008 January. Available from: https://sarepta.ehelse.no/standard/SYSVAK/1.0.">
+		["original_namespace"] = <"no.nasjonalikt">
+		["original_publisher"] = <"Nasjonal IKT">
+		["custodian_namespace"] = <"no.nasjonalikt">
+		["MD5-CAM-1.0.1"] = <"ea55c0669b7be0e4b06c3ce81921d717">
+		["build_uid"] = <"86ccdad8-ceac-4710-b3c7-27a657eb1ec0">
+		["revision"] = <"1.0.0">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- SYSVAK vaksinedetaljer
+		items cardinality matches {1..*; unordered} matches {
+			CLUSTER[at0002] occurrences matches {0..1} matches {    -- Vaksinand
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0003] matches {    -- Type personidentifikasjon
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0004] matches {    -- Vaksinand alternativ ID
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0005] occurrences matches {0..1} matches {    -- Omsorgsperson
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0006] matches {    -- Type offisiell personidentifikasjon
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0007] matches {    -- Omsorgspersons ID
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			ELEMENT[at0009] occurrences matches {0..1} matches {    -- Vaksinetype
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0010] occurrences matches {0..1} matches {    -- Vaksine gitt
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0011] occurrences matches {0..1} matches {    -- Varighet utsettelse
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0012] occurrences matches {0..1} matches {    -- Vaksine satt på stedet
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0013] occurrences matches {0..1} matches {    -- Vaksinasjondokumentasjon
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"SYSVAK vaksinedetaljer">
+					description = <"Data som skal sendes til SYSVAK, og som ikke finnes i andre publiserte arketyper.">
+				>
+				["at0002"] = <
+					text = <"Vaksinand">
+					description = <"Individet som får vaksinen.">
+				>
+				["at0003"] = <
+					text = <"Type personidentifikasjon">
+					description = <"Alternativ type identifikasjon til vaksinand.">
+					comment = <"OID=9032. Skal oppgis sammen med selve identifikasjonen.">
+				>
+				["at0004"] = <
+					text = <"Vaksinand alternativ ID">
+					description = <"Identifikasjon av vaksinand.">
+					comment = <"For eksempel passnummer, svensk personnummer eller lignende når vaksinand ikke har norsk fødselsnummer eller D-nummer.">
+				>
+				["at0005"] = <
+					text = <"Omsorgsperson">
+					description = <"Omsorgsperson for vaksinand.">
+					comment = <"For eksempel forelder, foresatt, verge.">
+				>
+				["at0006"] = <
+					text = <"Type offisiell personidentifikasjon">
+					description = <"Type identifikasjon til omsorgsperson.">
+					comment = <"Skal oppgis sammen med selve identifikasjonen. Kun Fødselsnummer eller D-nummer er gyldige verdier  (OID=8327).">
+				>
+				["at0007"] = <
+					text = <"Omsorgspersons ID">
+					description = <"Identifikasjon til omsorgsperson for vaksinanden.">
+				>
+				["at0009"] = <
+					text = <"Vaksinetype">
+					description = <"SYSVAK vaksinetype (OID=9501).">
+				>
+				["at0010"] = <
+					text = <"Vaksine gitt">
+					description = <"Angivelse om vaksine er gitt eller ikke.">
+					comment = <"Manglende vaksinasjon indikerer at en person skulle ha fått vaksinen iht. vaksinasjonsprogrammet, men at den ikke ble gitt av ulike årsaker.">
+				>
+				["at0011"] = <
+					text = <"Varighet utsettelse">
+					description = <"Varighet på utsettelse av vaksinasjonen.">
+					comment = <"For eksempel kortvarig, varig (OID=9552).">
+				>
+				["at0012"] = <
+					text = <"Vaksine satt på stedet">
+					description = <"Angivelse om vaksinasjon er utført av registrerende helseenhet eller ikke.">
+					comment = <"Ved etterregistrering er vaksinasjonen ofte ikke satt på stedet, men ved annen helseenhet.">
+				>
+				["at0013"] = <
+					text = <"Vaksinasjondokumentasjon">
+					description = <"Type dokumentasjon når vaksinasjon ikke er satt på stedet.">
+					comment = <"Brukes typisk ved etterregistrering. For eksempel \"FDA Fiktiv dato\", vaksinekort er framvist (OID=9555).">
+				>
+			>
+		>
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"*SYSVAK vaksinedetaljer (nb)">
+					description = <"*Data som skal sendes til SYSVAK, og som ikke finnes i andre publiserte arketyper. (nb)">
+				>
+				["at0002"] = <
+					text = <"*Vaksinand (nb)">
+					description = <"*Individet som får vaksinen. (nb)">
+				>
+				["at0003"] = <
+					text = <"*Type personidentifikasjon (nb)">
+					description = <"*Alternativ type identifikasjon til vaksinand. (nb)">
+					comment = <"*OID=9032. Skal oppgis sammen med selve identifikasjonen. (nb)">
+				>
+				["at0004"] = <
+					text = <"*Vaksinand alternativ ID (nb)">
+					description = <"*Identifikasjon av vaksinand. (nb)">
+					comment = <"*For eksempel passnummer, svensk personnummer eller lignende når vaksinand ikke har norsk fødselsnummer eller D-nummer. (nb)">
+				>
+				["at0005"] = <
+					text = <"*Omsorgsperson (nb)">
+					description = <"*Omsorgsperson for vaksinand. (nb)">
+					comment = <"*For eksempel forelder, foresatt, verge. (nb)">
+				>
+				["at0006"] = <
+					text = <"*Type offisiell personidentifikasjon (nb)">
+					description = <"*Type identifikasjon til omsorgsperson. (nb)">
+					comment = <"*Skal oppgis sammen med selve identifikasjonen. Kun Fødselsnummer eller D-nummer er gyldige verdier  (OID=8327). (nb)">
+				>
+				["at0007"] = <
+					text = <"*Omsorgspersons ID (nb)">
+					description = <"*Identifikasjon til omsorgsperson for vaksinanden. (nb)">
+				>
+				["at0009"] = <
+					text = <"*Vaksinetype (nb)">
+					description = <"*SYSVAK vaksinetype (OID=9501). (nb)">
+				>
+				["at0010"] = <
+					text = <"*Vaksine gitt (nb)">
+					description = <"*Angivelse om vaksine er gitt eller ikke. (nb)">
+					comment = <"*Manglende vaksinasjon indikerer at en person skulle ha fått vaksinen iht. vaksinasjonsprogrammet, men at den ikke ble gitt av ulike årsaker. (nb)">
+				>
+				["at0011"] = <
+					text = <"*Varighet utsettelse (nb)">
+					description = <"*Varighet på utsettelse av vaksinasjonen. (nb)">
+					comment = <"*For eksempel kortvarig, varig (OID=9552). (nb)">
+				>
+				["at0012"] = <
+					text = <"*Vaksine satt på stedet (nb)">
+					description = <"*Angivelse om vaksinasjon er utført av registrerende helseenhet eller ikke. (nb)">
+					comment = <"*Ved etterregistrering er vaksinasjonen ofte ikke satt på stedet, men ved annen helseenhet. (nb)">
+				>
+				["at0013"] = <
+					text = <"*Vaksinasjondokumentasjon (nb)">
+					description = <"*Type dokumentasjon når vaksinasjon ikke er satt på stedet. (nb)">
+					comment = <"*Brukes typisk ved etterregistrering. For eksempel \"FDA Fiktiv dato\", vaksinekort er framvist (OID=9555). (nb)">
+				>
+			>
+		>
+		["es"] = <
+			items = <
+				["at0000"] = <
+					text = <"*SYSVAK vaksinedetaljer (nb)">
+					description = <"*Data som skal sendes til SYSVAK, og som ikke finnes i andre publiserte arketyper. (nb)">
+				>
+				["at0002"] = <
+					text = <"*Vaksinand (nb)">
+					description = <"*Individet som får vaksinen. (nb)">
+				>
+				["at0003"] = <
+					text = <"*Type personidentifikasjon (nb)">
+					description = <"*Alternativ type identifikasjon til vaksinand. (nb)">
+					comment = <"*OID=9032. Skal oppgis sammen med selve identifikasjonen. (nb)">
+				>
+				["at0004"] = <
+					text = <"*Vaksinand alternativ ID (nb)">
+					description = <"*Identifikasjon av vaksinand. (nb)">
+					comment = <"*For eksempel passnummer, svensk personnummer eller lignende når vaksinand ikke har norsk fødselsnummer eller D-nummer. (nb)">
+				>
+				["at0005"] = <
+					text = <"*Omsorgsperson (nb)">
+					description = <"*Omsorgsperson for vaksinand. (nb)">
+					comment = <"*For eksempel forelder, foresatt, verge. (nb)">
+				>
+				["at0006"] = <
+					text = <"*Type offisiell personidentifikasjon (nb)">
+					description = <"*Type identifikasjon til omsorgsperson. (nb)">
+					comment = <"*Skal oppgis sammen med selve identifikasjonen. Kun Fødselsnummer eller D-nummer er gyldige verdier  (OID=8327). (nb)">
+				>
+				["at0007"] = <
+					text = <"*Omsorgspersons ID (nb)">
+					description = <"*Identifikasjon til omsorgsperson for vaksinanden. (nb)">
+				>
+				["at0009"] = <
+					text = <"*Vaksinetype (nb)">
+					description = <"*SYSVAK vaksinetype (OID=9501). (nb)">
+				>
+				["at0010"] = <
+					text = <"*Vaksine gitt (nb)">
+					description = <"*Angivelse om vaksine er gitt eller ikke. (nb)">
+					comment = <"*Manglende vaksinasjon indikerer at en person skulle ha fått vaksinen iht. vaksinasjonsprogrammet, men at den ikke ble gitt av ulike årsaker. (nb)">
+				>
+				["at0011"] = <
+					text = <"*Varighet utsettelse (nb)">
+					description = <"*Varighet på utsettelse av vaksinasjonen. (nb)">
+					comment = <"*For eksempel kortvarig, varig (OID=9552). (nb)">
+				>
+				["at0012"] = <
+					text = <"*Vaksine satt på stedet (nb)">
+					description = <"*Angivelse om vaksinasjon er utført av registrerende helseenhet eller ikke. (nb)">
+					comment = <"*Ved etterregistrering er vaksinasjonen ofte ikke satt på stedet, men ved annen helseenhet. (nb)">
+				>
+				["at0013"] = <
+					text = <"*Vaksinasjondokumentasjon (nb)">
+					description = <"*Type dokumentasjon når vaksinasjon ikke er satt på stedet. (nb)">
+					comment = <"*Brukes typisk ved etterregistrering. For eksempel \"FDA Fiktiv dato\", vaksinekort er framvist (OID=9555). (nb)">
+				>
+			>
+		>
+	>
